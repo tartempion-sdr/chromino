@@ -1,6 +1,7 @@
 #main-chromino.py
-
+#pip install --upgrade pygame
 import pygame 
+from pygame.locals import *
 import sys
 
 
@@ -12,7 +13,7 @@ white = [255, 255, 255]
 blue = (0, 0, 255)
 screen.fill(white)
 
-rectangle = pygame.Rect(10, 10, 20, 20)
+rectangle = pygame.Rect(200, 200, 19, 19)
 
 
 game_on = True
@@ -23,6 +24,12 @@ while game_on:
             game_on = False
             pygame.quit()
             sys.exit()
+            
+        elif event.type == MOUSEWHEEL:
+               print(event)
+               print(event.x, event.y)
+               
+            
     
     pygame.draw.rect(screen, blue, rectangle)
     
