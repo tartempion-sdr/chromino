@@ -12,7 +12,7 @@ white = [255, 255, 255]
 blue = (0, 0, 255)
 screen.fill(white)
 
-rectangle = pygame.Rect(100, 100, 200, 150)
+rectangle = pygame.Rect(10, 10, 20, 20)
 
 
 game_on = True
