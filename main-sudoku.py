@@ -5,17 +5,15 @@ import sys
 import grille
 
 pygame.init()
-
 screen = pygame.display.set_mode((400,400))
+pygame.display.set_caption("chromino")
 clock = pygame.time.Clock()
 white = [255, 255, 255]
+blue = (0, 0, 255)
 screen.fill(white)
 
-pygame.display.set_caption("chromino")
-
-
-
-
+rectangle = pygame.Rect(100, 100, 200, 150)
+gr = grille.Jeton
 
 game_on = True
 
@@ -26,18 +24,9 @@ while game_on:
             pygame.quit()
             sys.exit()
     
-    
-    #pygame.display.update()
-    
-    BLUE = (0, 0, 255)
-    rectangle = pygame.Rect(100, 100, 200, 150)
-    #gr = grille.Jeton
-    surface = pygame.Surface((400, 400))
-    #carre = gr.jetons(screen, BLUE, rectangle)
-    pygame.draw.rect(screen, BLUE, rectangle)
+    pygame.draw.rect(screen, blue, rectangle)
     
     pygame.display.flip()
-    
     
     clock.tick(60)  # limits FPS to 60
 
