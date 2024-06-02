@@ -3,9 +3,10 @@
 import pygame 
 from pygame.locals import *
 import sys
-
+import grille
 
 pygame.init()
+#type surface
 screen = pygame.display.set_mode((400,400))
 pygame.display.set_caption("chromino")
 clock = pygame.time.Clock()
@@ -30,8 +31,8 @@ while game_on:
                print(event.x, event.y)
                
             
-    
-    pygame.draw.rect(screen, blue, rectangle)
+    gr = grille.Grille.plateau(screen)
+    #pygame.draw.rect(screen, blue, rectangle)
     
     pygame.display.flip()
     
