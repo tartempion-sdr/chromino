@@ -1,8 +1,8 @@
-#main-sudoku.py
+#main-chromino.py
 
 import pygame 
 import sys
-import grille
+
 
 pygame.init()
 screen = pygame.display.set_mode((400,400))
@@ -13,7 +13,7 @@ blue = (0, 0, 255)
 screen.fill(white)
 
 rectangle = pygame.Rect(100, 100, 200, 150)
-gr = grille.Jeton
+
 
 game_on = True
 
