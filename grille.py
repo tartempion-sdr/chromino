@@ -10,5 +10,6 @@ class Grille:
     def __init__():
         pass
     
-    def plateau(screen:pygame.Surface):
+    def plateau(screen:pygame.Surface, color:tuple, rectangle:tuple):
+        
         pygame.draw.rect(screen, blue, rectangle)

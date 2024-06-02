@@ -6,16 +6,18 @@ import sys
 import grille
 
 pygame.init()
+
+
 #type surface
 screen = pygame.display.set_mode((400,400))
+modifier_screen = pygame.display
 pygame.display.set_caption("chromino")
 clock = pygame.time.Clock()
 white = [255, 255, 255]
 blue = (0, 0, 255)
+cote = 19
+rectangle = pygame.Rect(200, 200, cote, cote)
 screen.fill(white)
-
-rectangle = pygame.Rect(200, 200, 19, 19)
-
 
 game_on = True
 
@@ -27,12 +29,26 @@ while game_on:
             sys.exit()
             
         elif event.type == MOUSEWHEEL:
-               print(event)
-               print(event.x, event.y)
-               
-            
-    gr = grille.Grille.plateau(screen)
-    #pygame.draw.rect(screen, blue, rectangle)
+            rectangle = pygame.Rect(200, 200, cote, cote)
+            if event.y == -1 :
+                cote -= 1 
+                grille.Grille.plateau(screen, blue, rectangle)
+                print(cote)
+                print(rectangle)
+
+                
+            if event.y == 1 :
+                cote += 1
+                grille.Grille.plateau(screen, blue, rectangle)
+                print(cote)
+                print(rectangle)
+                
+            print(type(event.x))
+            print(event.x, event.y)
+            screen.fill(white)
+            pygame.display.flip()
+    #gr = grille.Grille.plateau(screen, blue, rectangle)
+    pygame.draw.rect(screen, blue, rectangle)
     
     pygame.display.flip()
     
