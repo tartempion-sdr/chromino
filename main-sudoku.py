@@ -9,19 +9,26 @@ pygame.init()
 
 
 #type surface
-screen = pygame.display.set_mode((400,400))
+screen = pygame.display.set_mode((800,800))
 modifier_screen = pygame.display
 pygame.display.set_caption("chromino")
 clock = pygame.time.Clock()
 white = [255, 255, 255]
 blue = (0, 0, 255)
+
+casex = 0
+casey = 0
 cote = 19
-rectangle = pygame.Rect(200, 200, cote, cote)
+rectangle = pygame.Rect(casex, casey, cote, cote)
 screen.fill(white)
 
 game_on = True
 
+        
+
 while game_on:
+    
+
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             game_on = False
@@ -29,26 +36,28 @@ while game_on:
             sys.exit()
             
         elif event.type == MOUSEWHEEL:
-            rectangle = pygame.Rect(200, 200, cote, cote)
+            
+            rectangle = pygame.Rect(casex, casey, cote, cote)
             if event.y == -1 :
                 cote -= 1 
-                grille.Grille.plateau(screen, blue, rectangle)
-                print(cote)
-                print(rectangle)
-
-                
+                zoom_moins = grille.Grille(screen, blue, rectangle, cote)
+                zoom_moins.zoom_moins(screen, blue, rectangle, cote)
+                 
             if event.y == 1 :
-                cote += 1
-                grille.Grille.plateau(screen, blue, rectangle)
-                print(cote)
-                print(rectangle)
-                
-            print(type(event.x))
-            print(event.x, event.y)
+                cote += 1 
+                zoom_plus = grille.Grille(screen, blue, rectangle, cote)
+                zoom_plus.zoom_plus(screen, blue, rectangle, cote)
+            
+            
+            
+            print("event", event.y)
             screen.fill(white)
             pygame.display.flip()
-    #gr = grille.Grille.plateau(screen, blue, rectangle)
-    pygame.draw.rect(screen, blue, rectangle)
+    
+    
+    case1 = grille.Grille(screen, blue, rectangle, cote)
+    case1.toute_les_cases(screen, blue, rectangle, cote)
+    
     
     pygame.display.flip()
     
